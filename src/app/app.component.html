@@ -10,7 +10,22 @@
     (search)="text = $event"
   ></course-search>
 </course-header>
-{{text}}
+
+<div *ngIf="usersStream$ | async as users; else loader">
+  <course-card *ngFor="let user of users | usersFilter:text; index as i;odd as isOdd "
+               [user]="user"
+               [position]="i+1"
+               [isOdd]="isOdd"
+  ></course-card>
+
+</div>
+<ng-template #loader>
+  <div>...loading</div>
+</ng-template>
+
+
+
+
 
 
 

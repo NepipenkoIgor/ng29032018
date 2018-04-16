@@ -1,0 +1,7 @@
+<mat-card [ngClass]="{background: isOdd}">
+  <div class="position">{{position}}</div>
+  <img class="avatar" [src]="getAvatar(user)" alt="">
+  <div class="name">
+    {{user?.firstName}} {{user?.surname}}
+  </div>
+</mat-card>

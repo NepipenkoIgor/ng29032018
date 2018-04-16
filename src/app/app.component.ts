@@ -1,4 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {users$, users} from './data';
 
 @Component({
   selector: 'app-root',
@@ -6,24 +7,24 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  public title = 'Hi Timo';
-  public addition = 1.1;
+export class AppComponent implements OnInit, OnDestroy {
   public width = 50;
   public text;
   public placeholder = 'Search term';
   public border = '1px solid red';
   public logo = 'https://hsto.org/webt/eb/ly/pp/eblypp6fge8ppfcellukk_kimf0.png';
 
-  private _salary = 2000;
+  public usersStream$ = users$;
 
 
-  public getSalary(): number {
-    return this._salary;
+  public ngOnInit(): void {
+  }
+
+  public ngOnDestroy(): void {
   }
 
   public changeColor(ev: MouseEvent) {
-    console.log(ev)
+    console.log(ev);
     this.border = `1px solid green`;
   }
 
