@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {users$, users} from './data';
+import {Observable} from 'rxjs/Observable';
+import {UsersService} from './common/services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,17 @@ export class AppComponent implements OnInit, OnDestroy {
   public border = '1px solid red';
   public logo = 'https://hsto.org/webt/eb/ly/pp/eblypp6fge8ppfcellukk_kimf0.png';
 
-  public usersStream$ = users$;
+  public usersStream$: Observable<User>;
 
+
+  public constructor(
+    private _usersService: UsersService
+  ) {
+
+  }
 
   public ngOnInit(): void {
+    this.usersStream$ = this._usersService.getUsers();
   }
 
   public ngOnDestroy(): void {
