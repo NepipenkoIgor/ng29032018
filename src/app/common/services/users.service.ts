@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {BASE_URL} from '../../config';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class UsersService {
@@ -14,10 +15,14 @@ export class UsersService {
   ) {
   }
 
-  public getUsers(): Observable<User | null> {
+  public getUsers(): Observable<User[] | null> {
 
-    return this._http.get<User>(`${this._baseUrl}/courses/groups/api/participants?key=kpans4`)
+    return this._http.get<User[]>(`${this._baseUrl}/courses/groups/api/participants?key=kpans4`)
       .pipe(
+        map((users: User[]) => {
+          let id = 1;
+          return users.map((user: User) => ({...user, id: id++}));
+        }),
         catchError(err => of(null))
       );
   }

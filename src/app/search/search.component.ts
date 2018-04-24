@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DateService} from '../common/services/date.service';
-
 @Component({
   selector: 'course-search',
   templateUrl: './search.component.html',

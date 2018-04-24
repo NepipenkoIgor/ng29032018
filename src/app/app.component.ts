@@ -8,32 +8,10 @@ import {UsersService} from './common/services/users.service';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
   public width = 50;
   public text;
   public placeholder = 'Search term';
-  public border = '1px solid red';
   public logo = 'https://hsto.org/webt/eb/ly/pp/eblypp6fge8ppfcellukk_kimf0.png';
-
-  public usersStream$: Observable<User>;
-
-
-  public constructor(
-    private _usersService: UsersService
-  ) {
-
-  }
-
-  public ngOnInit(): void {
-    this.usersStream$ = this._usersService.getUsers();
-  }
-
-  public ngOnDestroy(): void {
-  }
-
-  public changeColor(ev: MouseEvent) {
-    console.log(ev);
-    this.border = `1px solid green`;
-  }
 
 }

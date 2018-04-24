@@ -2,7 +2,6 @@
   <img [attr.src]="logo"
        [style.width.px]="width"
        [alt]="title"
-       (click)="changeColor($event)"
   >
   <h3>NG Course</h3>
   <course-search
@@ -11,17 +10,8 @@
   ></course-search>
 </course-header>
 
-<div *ngIf="usersStream$ | async as users; else loader">
-  <course-card *ngFor="let user of users | usersFilter:text; index as i;odd as isOdd "
-               [user]="user"
-               [position]="i+1"
-               [isOdd]="isOdd"
-  ></course-card>
 
-</div>
-<ng-template #loader>
-  <div>...loading</div>
-</ng-template>
+<router-outlet></router-outlet>
 
 
 

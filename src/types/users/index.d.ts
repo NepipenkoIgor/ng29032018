@@ -1,7 +1,8 @@
-interface User  {
+interface User {
+  id: number;
   firstName: string;
   surname: string;
   photo: string;
   country: string;
-  profileName: string
+  profileName: string;
 }
