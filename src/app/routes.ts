@@ -1,9 +1,9 @@
 import {Route} from '@angular/router';
 import {UsersComponent} from './users/users.component';
-import {InfoComponent} from './info/info.component';
 import {UsersListComponent} from './users/users-list/users-list.component';
 import {UserComponent} from './users/user/user.component';
 import {UserResolveService} from './users/user/user-resolve.service';
+import {InfoModule} from './info/info.module';
 
 
 export const routes: Route[] = [
@@ -38,7 +38,7 @@ export const routes: Route[] = [
   },
   {
     path: 'info',
-    component: InfoComponent
+    loadChildren: 'app/info/info.module#InfoModule'
   },
   {
     path: '**',

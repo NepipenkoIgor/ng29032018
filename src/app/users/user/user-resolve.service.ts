@@ -25,7 +25,6 @@ export class UserResolveService implements Resolve<User> {
         });
         if (!currentUser) {
           throw new Error('no user');
-          return;
         }
         return currentUser;
       })
@@ -34,6 +33,6 @@ export class UserResolveService implements Resolve<User> {
         return Observable.of(null);
       })
       ;
-  };
+  }
 
 }

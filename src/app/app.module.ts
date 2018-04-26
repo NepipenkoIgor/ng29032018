@@ -29,7 +29,6 @@ import {UserResolveService} from './users/user/user-resolve.service';
     CardComponent,
     UsersFilterPipe,
     UsersComponent,
-    InfoComponent,
     UsersListComponent,
     UserComponent
   ],

@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user$ = this._activatedRoute.data;
+    this.user$ = this._activatedRoute.data as Observable<{ user: User }>;
   }
 
 }

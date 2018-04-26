@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UsersListComponent implements OnInit {
 
-  public usersStream$: Observable<User>;
+  public usersStream$: Observable<User[]>;
   public title: string;
 
   public constructor(

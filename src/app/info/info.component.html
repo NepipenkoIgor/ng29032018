@@ -1,3 +1,49 @@
 <p>
   info works!
 </p>
+
+<h3>Template driven</h3>
+<div ngForm #f="ngForm">
+  <div>
+    <input type="text" name="firstName" ngModel required minlength="4">
+  </div>
+  <div>
+    <input type="text" name="lastName" ngModel required minlength="4">
+  </div>
+  <div ngModelGroup="passwordGroup">
+    <input type="password" name="password" ngModel required minlength="4">
+    <input type="password" name="cpassword" ngModel required minlength="4">
+  </div>
+</div>
+
+<pre>{{ f.value | json}}</pre>
+{{ f.valid }}
+
+
+<h3>Reactive</h3>
+<div [formGroup]="formModel">
+  <input type="text" formControlName="firstName">
+  <input type="text" formControlName="lastName">
+  <div formGroupName="passwordGroup">
+    <input type="password" formControlName="password">
+    <input type="password" formControlName="cpassword">
+  </div>
+</div>
+<pre>{{ formModel.value | json}}</pre>
+<pre>{{ formModel.errors}}</pre>
+<pre>{{ formModel.get('firstName').errors | json}}</pre>
+{{ formModel.valid }}
+{{ formModel.get('firstName').valid }}
+{{ formModel.get('lastName').valid }}
+
+<h3>Form Array</h3>
+
+<div [formGroup]="formArrayModel">
+  <ul formGroupName="emails">
+    <li *ngFor="let e of formArrayModel.get('emails').controls; index  as i">
+      <input type="text" formControlName={{i}}>
+    </li>
+  </ul>
+  <button (click)="addEmail()">Add email</button>
+</div>
+<pre>{{ formArrayModel.value | json}}</pre>
