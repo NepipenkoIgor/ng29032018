@@ -5,12 +5,12 @@
 <h3>Template driven</h3>
 <div ngForm #f="ngForm">
   <div>
-    <input type="text" name="firstName" ngModel required minlength="4">
+    <input type="text" name="firstName" ngModel required minlength="4" courseNameValidator>
   </div>
   <div>
     <input type="text" name="lastName" ngModel required minlength="4">
   </div>
-  <div ngModelGroup="passwordGroup">
+  <div ngModelGroup="passwordGroup" courseAsyncEqualsValidator>
     <input type="password" name="password" ngModel required minlength="4">
     <input type="password" name="cpassword" ngModel required minlength="4">
   </div>

@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {InfoComponent} from './info.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NameValidatorDirective } from './name-validator.directive';
+import { AsyncEqualsValidatorDirective } from './async-equals-validator.directive';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     }])
   ],
   declarations: [
-    InfoComponent
+    InfoComponent,
+    NameValidatorDirective,
+    AsyncEqualsValidatorDirective
   ]
 })
 export class InfoModule {
